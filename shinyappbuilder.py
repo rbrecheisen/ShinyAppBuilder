@@ -31,7 +31,6 @@ def main():
     
     shutil.copy('app.bat', app_dir)
     shutil.copy('app.sh', app_dir)
-    shutil.copy('app.R', app_dir)
     shutil.copy('run_app.R', app_dir)
 
     print('Done')
