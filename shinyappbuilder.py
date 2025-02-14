@@ -13,6 +13,13 @@ def main():
 
     app_dir = os.path.join(args.output_dir, args.app_name)
 
+    print('Checking code for mandatory files...')
+    files = os.listdir(args.code_dir)
+    assert 'app.R' in files, 'Missing "app.R" file that sources "server.R" and runs Shiny app'
+    assert 'ui.R' in files, 'Missing "ui.R" file that contains Shiny app UI'
+    assert 'server.R' in files, 'Missing "server.R" file with server-side functionality of Shiny app'
+    assert 'dependencies.R' in files, 'Missing "dependencies.R" file'
+
     print('Creating app directory...')
     os.makedirs(app_dir, exist_ok=False)
 
